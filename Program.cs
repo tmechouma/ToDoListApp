@@ -60,6 +60,28 @@ namespace ToDoListApp
             }
         }
 
+        // FonctionnalitÃ© 4 : Supprimer une tÃ¢che
+        static void DeleteTask()
+        {
+            Console.Clear();
+            Console.WriteLine("===== Supprimer une TÃ¢che =====");
+            DisplayTasks();
+
+            Console.Write("Entrez le numÃ©ro de la tÃ¢che Ã  supprimer : ");
+            if (int.TryParse(Console.ReadLine(), out int index) && index > 0 && index <= tasks.Count)
+            {
+                tasks.RemoveAt(index - 1);
+                Console.WriteLine("TÃ¢che supprimÃ©e !");
+            }
+            else
+            {
+                Console.WriteLine("NumÃ©ro invalide.");
+            }
+
+            Console.WriteLine("Appuyez sur EntrÃ©e pour revenir au menu.");
+            Console.ReadLine();
+        }
+
 
     }
 
