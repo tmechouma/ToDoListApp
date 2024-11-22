@@ -61,6 +61,29 @@ namespace ToDoListApp
         }
 
 
+        // FonctionnalitÃ© 3 : Marquer une tÃ¢che comme terminÃ©e
+        static void CompleteTask()
+        {
+            Console.Clear();
+            Console.WriteLine("===== Marquer une TÃ¢che comme TerminÃ©e =====");
+            DisplayTasks();
+
+            Console.Write("Entrez le numÃ©ro de la tÃ¢che Ã  terminer : ");
+            if (int.TryParse(Console.ReadLine(), out int index) && index > 0 && index <= tasks.Count)
+            {
+                tasks[index - 1].IsCompleted = true;
+                Console.WriteLine("TÃ¢che marquÃ©e comme terminÃ©e !");
+            }
+            else
+            {
+                Console.WriteLine("NumÃ©ro invalide.");
+            }
+
+            Console.WriteLine("Appuyez sur EntrÃ©e pour revenir au menu.");
+            Console.ReadLine();
+        }
+
+
     }
 
     // Classe de base pour une tâche
