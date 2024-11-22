@@ -30,6 +30,7 @@ namespace ToDoListApp
                 {
                        case "1":
                        // Fonctionalité 1 : tâchesAddTask();
+					    AddTask();
                         break;
                     case "2":
                        // Fonctionalité 2 : DisplayTasks();
@@ -59,6 +60,18 @@ namespace ToDoListApp
                 }
             }
         }
+		static void AddTask()
+		{
+			Console.Clear();
+			Console.WriteLine("===== Ajouter une Tâche =====");
+			Console.Write("Entrez le nom de la tâche : ");
+			string taskName = Console.ReadLine();
+			tasks.Add(new Task(taskName));
+			Console.WriteLine("Tâche ajoutée avec succès !");
+			Console.WriteLine("Appuyez sur Entrée pour revenir au menu.");
+			Console.ReadLine();
+		}
+
     }
 
     // Classe de base pour une tâche
