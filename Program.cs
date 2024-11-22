@@ -33,8 +33,10 @@ namespace ToDoListApp
 					    AddTask();
                         break;
                     case "2":
+					
                        // Fonctionalité 2 : DisplayTasks();
-                        break;
+                        DisplayTasks();
+						break;
                     case "3":
                        // Fonctionalité 3 : CompleteTask();
                         break;
@@ -71,8 +73,28 @@ namespace ToDoListApp
 			Console.WriteLine("Appuyez sur Entrée pour revenir au menu.");
 			Console.ReadLine();
 		}
+		static void DisplayTasks()
+        {
+            Console.Clear();
+            Console.WriteLine("===== Liste des Tâches =====");
+            if (tasks.Count == 0)
+            {
+                Console.WriteLine("Aucune tâche disponible.");
+            }
+            else
+            {
+                for (int i = 0; i < tasks.Count; i++)
+                {
+                    var task = tasks[i];
+                    Console.WriteLine($"{i + 1}. {task.Name} - {(task.IsCompleted ? "Terminée" : "En cours")} - Délai : {task.DueDate}");
+                }
+            }
+            Console.WriteLine("Appuyez sur Entrée pour revenir au menu.");
+            Console.ReadLine();
+        }
 
     }
+
 
     // Classe de base pour une tâche
     class Task
