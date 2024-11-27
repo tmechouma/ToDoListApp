@@ -60,21 +60,28 @@ namespace ToDoListApp
             }
         }
 
-        // Fonctionnalité 1 : Ajouter une tâche
-        static void AddTask()
+        // FonctionnalitÃ© 3 : Marquer une tÃ¢che comme terminÃ©e
+        static void CompleteTask()
         {
             Console.Clear();
-            Console.WriteLine("===== Ajouter une Tâche =====");
-            Console.Write("Entrez le nom de la tâche : ");
-            string taskName = Console.ReadLine();
-            Console.Write("Entrez un délai pour la tâche (facultatif) : ");
-            string dueDate = Console.ReadLine();
+            Console.WriteLine("===== Marquer une TÃ¢che comme TerminÃ©e =====");
+            DisplayTasks();
 
-            tasks.Add(new Task(taskName, dueDate));
-            Console.WriteLine("Tâche ajoutée avec succès !");
-            Console.WriteLine("Appuyez sur Entrée pour revenir au menu.");
+            Console.Write("Entrez le numÃ©ro de la tÃ¢che Ã  terminer : ");
+            if (int.TryParse(Console.ReadLine(), out int index) && index > 0 && index <= tasks.Count)
+            {
+                tasks[index - 1].IsCompleted = true;
+                Console.WriteLine("TÃ¢che marquÃ©e comme terminÃ©e !");
+            }
+            else
+            {
+                Console.WriteLine("NumÃ©ro invalide.");
+            }
+
+            Console.WriteLine("Appuyez sur EntrÃ©e pour revenir au menu.");
             Console.ReadLine();
         }
+
 
 
 
