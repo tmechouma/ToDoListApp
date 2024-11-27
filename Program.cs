@@ -59,20 +59,24 @@ namespace ToDoListApp
                 }
             }
         }
-
-        // Fonctionnalité 1 : Ajouter une tâche
-        static void AddTask()
+        // FonctionnalitÃ© 2 : Afficher les tÃ¢ches
+        static void DisplayTasks()
         {
             Console.Clear();
-            Console.WriteLine("===== Ajouter une Tâche =====");
-            Console.Write("Entrez le nom de la tâche : ");
-            string taskName = Console.ReadLine();
-            Console.Write("Entrez un délai pour la tâche (facultatif) : ");
-            string dueDate = Console.ReadLine();
-
-            tasks.Add(new Task(taskName, dueDate));
-            Console.WriteLine("Tâche ajoutée avec succès !");
-            Console.WriteLine("Appuyez sur Entrée pour revenir au menu.");
+            Console.WriteLine("===== Liste des TÃ¢ches =====");
+            if (tasks.Count == 0)
+            {
+                Console.WriteLine("Aucune tÃ¢che disponible.");
+            }
+            else
+            {
+                for (int i = 0; i < tasks.Count; i++)
+                {
+                    var task = tasks[i];
+                    Console.WriteLine($"{i + 1}. {task.Name} - {(task.IsCompleted ? "TerminÃ©e" : "En cours")} - DÃ©lai : {task.DueDate}");
+                }
+            }
+            Console.WriteLine("Appuyez sur EntrÃ©e pour revenir au menu.");
             Console.ReadLine();
         }
 
