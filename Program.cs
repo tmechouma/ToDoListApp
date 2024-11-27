@@ -59,25 +59,27 @@ namespace ToDoListApp
                 }
             }
         }
-
-        // Fonctionnalité 1 : Ajouter une tâche
-        static void AddTask()
+        // Fonctionnalité 4 : Supprimer une tâche
+        static void DeleteTask()
         {
             Console.Clear();
-            Console.WriteLine("===== Ajouter une Tâche =====");
-            Console.Write("Entrez le nom de la tâche : ");
-            string taskName = Console.ReadLine();
-            Console.Write("Entrez un délai pour la tâche (facultatif) : ");
-            string dueDate = Console.ReadLine();
+            Console.WriteLine("===== Supprimer une Tâche =====");
+            DisplayTasks();
 
-            tasks.Add(new Task(taskName, dueDate));
-            Console.WriteLine("Tâche ajoutée avec succès !");
+            Console.Write("Entrez le numéro de la tâche à supprimer : ");
+            if (int.TryParse(Console.ReadLine(), out int index) && index > 0 && index <= tasks.Count)
+            {
+                tasks.RemoveAt(index - 1);
+                Console.WriteLine("Tâche supprimée !");
+            }
+            else
+            {
+                Console.WriteLine("Numéro invalide.");
+            }
+
             Console.WriteLine("Appuyez sur Entrée pour revenir au menu.");
             Console.ReadLine();
         }
-
-
-
 
     }
 
