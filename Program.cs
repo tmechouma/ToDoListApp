@@ -59,6 +59,7 @@ namespace ToDoListApp
                 }
             }
         }
+<<<<<<< HEAD
         // FonctionnalitÃ© 2 : Afficher les tÃ¢ches
         static void DisplayTasks()
         {
@@ -79,12 +80,28 @@ namespace ToDoListApp
             Console.WriteLine("Appuyez sur EntrÃ©e pour revenir au menu.");
             Console.ReadLine();
         }
+=======
+		static void AddTask()
+		{
+			Console.Clear();
+			Console.WriteLine("===== Ajouter une Tâche =====");
+			Console.Write("Entrez le nom de la tâche : ");
+			string taskName = Console.ReadLine();
+			tasks.Add(new Task(taskName));
+			Console.WriteLine("Tâche ajoutée avec succès !");
+			Console.WriteLine("Appuyez sur Entrée pour revenir au menu.");
+			Console.ReadLine();
+		}
+>>>>>>> parent of e3c2621 (Ajout de la fonctionnalité Afficher les taches)
 
 
+<<<<<<< HEAD
 
 
     }
 
+=======
+>>>>>>> parent of e3c2621 (Ajout de la fonctionnalité Afficher les taches)
     // Classe de base pour une tâche
     class Task
     {
