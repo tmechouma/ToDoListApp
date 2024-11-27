@@ -60,9 +60,22 @@ namespace ToDoListApp
             }
         }
 
-        // Fonctionnalité 1 : Ajouter une tâche
+        // Fonctionnalité 1 : Ajouter une tache
 
+        static void AddTask()
+        {
+            Console.Clear();
+            Console.WriteLine("===== Ajouter une Taches =====");
+            Console.Write("Entrez le nom de la tache : ");
+            string taskName = Console.ReadLine();
+            Console.Write("Entrez un délai pour la tâche (facultatif) : ");
+            string dueDate = Console.ReadLine();
 
+            tasks.Add(new Task(taskName, dueDate));
+            Console.WriteLine("Tâche ajoutée avec succès !");
+            Console.WriteLine("Appuyez sur Entrée pour revenir au menu.");
+            Console.ReadLine();
+        }
 
 
 
